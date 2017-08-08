@@ -1,0 +1,64 @@
+
+function permAlone(str) {
+var finalArray=[];
+
+  
+var generate=function(len,res){
+  var temp;
+
+  
+console.log(len);
+ 
+   if (len===1)
+     {
+       console.log("yo");
+       
+return res;
+       
+     }
+   else
+    {
+       for (var i=0;i<=len-1;i++)
+       {
+        generate(len-1, res);
+       
+         if (i % 2 ===0)
+          {
+         //swap(A[0], A[n-1])
+          
+            temp=res[0];
+            res[0]=res[len-1];
+            res[len-1]=temp;
+            console.log(res);
+            finalArray.push(res.toString());
+            
+          }
+        else
+          {
+         
+            temp=res[i] ;
+            res[i]=res[len-1];//else
+            res[len-1]=temp;
+                 console.log(res);
+finalArray.push(res.toString());
+            //swap(A[i], A[n-1])
+          }
+          
+        }
+
+       }
+return finalArray;
+  
+}
+  
+var mylen = str.length; 
+var myres = str.split("");
+
+//return mylen;
+
+return generate(mylen,myres);
+}
+permAlone('abc');
+
+
+
